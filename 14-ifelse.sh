@@ -2,7 +2,7 @@
 
 echo -e "Demo On If , If Else & Else If Usage"
 
-ACTION=$11 
+ACTION=$1 
 
 if [ "$ACTION" == "start" ] ; then 
     echo -e "\e[33m Starting Shipping Service \e[0m"
