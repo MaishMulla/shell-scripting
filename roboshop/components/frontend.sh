@@ -32,24 +32,22 @@ fi
 
 echo -n "clening the  $1 component"        
  cd /usr/share/nginx/html
- rm -rf *          &>> /tmp/frontend.log
+ rm -rf *  &>> /tmp/frontend.log
  if [ $? -eq 0 ] ; then
     echo "success"
 else 
     echo "fail"
 fi
 
-echo "extracting $1 component "
-unzip /tmp/frontend.zip      &>> /tmp/frontend.log
-
+echo "extracting $1: "
+unzip /tmp/frontend.zip   &>> /tmp/frontend.log
 if [ $? -eq 0 ] ; then
     echo "success"
 else 
     echo "fail"
 fi
 
-echo "configuring $1 component "
-
+echo "configuring $1:"
  mv frontend-main/* .
  mv static/* .
  rm -rf frontend-main README.md
