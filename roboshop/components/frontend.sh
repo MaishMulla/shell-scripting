@@ -12,7 +12,7 @@ exit 1
 fi
 
 echo "-----configuring frontend-------"
-echo -n"installing nginx"
+echo -n "installing nginx"
 
 yum install nginx -y     &>> /tmp/frontend.log
 
@@ -21,7 +21,7 @@ if [ $? -eq 0 ] ; then
 else 
     echo "fail"
 fi
- echo "downloading the component $1"
+ echo -n "downloading the component $1"
 
  # curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
  if [ $? -eq 0 ] ; then
