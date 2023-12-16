@@ -21,7 +21,7 @@ if [ $? -eq 0 ] ; then
 else 
     echo "fail"
 fi
- echo -n "downloading the component $1"
+ echo -n "downloading the $1 component"
 
  # curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
  if [ $? -eq 0 ] ; then
@@ -30,7 +30,7 @@ else
     echo "fail"
 fi
 
-echo -n "clening the component $1"        
+echo -n "clening the  $1 component"        
  cd /usr/share/nginx/html
  rm -rf *          &>> /tmp/frontend.log
  if [ $? -eq 0 ] ; then
