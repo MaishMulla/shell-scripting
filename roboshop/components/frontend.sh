@@ -23,7 +23,7 @@ else
 fi
  echo -n "downloading the $1 component :"
 
- # curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
+  curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
  if [ $? -eq 0 ] ; then
     echo "success"
 else 
