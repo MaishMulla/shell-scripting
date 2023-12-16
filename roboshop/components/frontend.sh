@@ -12,7 +12,7 @@ exit 1
 fi
 
 echo "-----configuring frontend-------"
-echo -n "installing nginx"
+echo -n "installing nginx :"
 
 yum install nginx -y     &>> /tmp/frontend.log
 
@@ -29,3 +29,40 @@ fi
 else 
     echo "fail"
 fi
+
+echo -n "clening the component $1"        
+ cd /usr/share/nginx/html
+ rm -rf *          &>> /tmp/frontend.log
+ if [ $? -eq 0 ] ; then
+    echo "success"
+else 
+    echo "fail"
+fi
+
+echo "extracting $1 component "
+unzip /tmp/frontend.zip      &>> /tmp/frontend.log
+
+if [ $? -eq 0 ] ; then
+    echo "success"
+else 
+    echo "fail"
+fi
+
+echo "configuring $1 component "
+
+ mv frontend-main/* .
+ mv static/* .
+ rm -rf frontend-main README.md
+ mv localhost.conf /etc/nginx/default.d/roboshop.conf
+
+if [ $? -eq 0 ] ; then
+    echo "success"
+else 
+    echo "fail"
+fi
+
+echo -n "restarting $1"
+
+systemctl enable nginx
+systemctl daemon-reload
+ systemctl start nginx
