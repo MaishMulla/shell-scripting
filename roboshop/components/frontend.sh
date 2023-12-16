@@ -13,4 +13,4 @@ fi
 echo "-----configuring frontend-------"
 echo "installing nginx"
 
-yum install nginx -y
+yum install nginx -y > /temp/frontend.log
