@@ -15,10 +15,9 @@ echo "installing nginx"
 
 yum install nginx -y     &>> /tmp/frontend.log
 
-if [ $? -eq 0 ] then;
+if [ $? -eq 0 ] ; then
 echo "success"
-
 else 
-echo "fail:"
+echo "fail"
 
 fi
