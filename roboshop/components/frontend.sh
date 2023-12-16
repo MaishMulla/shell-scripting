@@ -63,6 +63,12 @@ fi
 
 echo -n "restarting $1"
 
-systemctl enable nginx
-systemctl daemon-reload
- systemctl start nginx
+systemctl enable nginx     &>> /tmp/frontend.log
+systemctl daemon-reload      &>> /tmp/frontend.log
+systemctl start nginx       &>> /tmp/frontend.log
+
+if [ $? -eq 0 ] ; then
+    echo "success"
+else 
+    echo "fail"
+fi
