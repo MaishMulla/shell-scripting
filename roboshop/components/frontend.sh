@@ -30,7 +30,7 @@ else
     echo "fail"
 fi
 
-echo -n "clening the  $1 component :"        
+echo -n "clening the $1 component :"        
  cd /usr/share/nginx/html
  rm -rf *  &>> /tmp/frontend.log
  if [ $? -eq 0 ] ; then
