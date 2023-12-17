@@ -34,11 +34,11 @@ echo -n "clening the $COMPONENT :"
  rm -rf *  &>> $ {LOGFILE}
  start $?
 
-echo -n "extracting ${COMPONENT}"
+echo -n "extracting ${COMPONENT} "
 unzip -o /tmp/${COMPONENT}.zip     &>> $LOGFILE
 start $?
 
-echo -n "configuring $COMPONENT:"
+echo -n "configuring $COMPONENT :"
  mv ${COMPONENT}-main/* .
  mv static/* .
  rm -rf ${COMPONENT}-main README.md
