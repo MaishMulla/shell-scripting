@@ -36,7 +36,6 @@ echo -n "clening the $COMPONENT :"
 
 echo -n "extracting ${COMPONENT}"
 unzip -o /tmp/${COMPONENT}.zip     &>> $LOGFILE
-ls -ltr /tmp/${COMPONENT}
 start $?
 
 echo -n "configuring $COMPONENT:"
