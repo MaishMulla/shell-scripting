@@ -58,7 +58,7 @@ else
     echo "fail"
 fi
 
-echo -n "restarting $1"
+echo -n "restarting: $COMPONENT"
 
 systemctl enable nginx      &>> $LOGFILE
 systemctl daemon-reload      &>> $LOGFILE
