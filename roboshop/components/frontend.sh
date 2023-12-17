@@ -13,7 +13,7 @@ fi
 echo "-----configuring $COMPONENT-------"
 echo -n "installing nginx :"
 
-yum install nginx -y     &>> /tmp/frontend.log
+yum install nginx -y     &>> $LOGFILE
 
 if [ $? -eq 0 ] ; then
     echo "success"
@@ -39,7 +39,7 @@ else
 fi
 
 echo "extracting $1: "
-unzip /tmp/frontend.zip   &>> LOGFILE
+unzip /tmp/frontend.zip     &>> $LOGFILE
 if [ $? -eq 0 ] ; then
     echo "success"
 else 
@@ -60,9 +60,9 @@ fi
 
 echo -n "restarting $1"
 
-systemctl enable nginx     &>> LOGFILE
-systemctl daemon-reload      &>> LOGFILE
-systemctl start nginx       &>> LOGFILE
+systemctl enable nginx      &>> $LOGFILE
+systemctl daemon-reload      &>> $LOGFILE
+systemctl start nginx        &>> $LOGFILE
 
 if [ $? -eq 0 ] ; then
     echo "success"
