@@ -34,8 +34,8 @@ echo -n "clening the $COMPONENT :"
  rm -rf *  &>> $ {LOGFILE}
  start $?
 
-echo -n "extracting ${COMPONENT} "
-unzip -O /tmp/${COMPONENT}.zip     &>> $LOGFILE
+echo -n "extracting ${COMPONENT}"
+unzip -o /tmp/${COMPONENT}.zip     &>> $LOGFILE
 ls -ltr /tmp/${COMPONENT}
 start $?
 
