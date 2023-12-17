@@ -38,7 +38,7 @@ else
     echo "fail"
 fi
 
-echo "extracting $1: "
+echo -n "extracting $1: "
 unzip /tmp/frontend.zip     &>> $LOGFILE
 if [ $? -eq 0 ] ; then
     echo "success"
@@ -46,7 +46,7 @@ else
     echo "fail"
 fi
 
-echo "configuring $COMPONENT:"
+echo -n "configuring $COMPONENT:"
  mv frontend-main/* .
  mv static/* .
  rm -rf frontend-main README.md
