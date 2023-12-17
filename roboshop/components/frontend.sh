@@ -1,8 +1,8 @@
-#!/bin/bash
+# !/bin/bash
 
 USER_UID=$(id -u)
 COMPONENT=$1
-LOGFILE="/tmp/${COMPoENT}.log
+LOGFILE="/tmp/${COMPOENT}.log
 
 if [ $USER_UID -ne 0 ] ; then 
 echo -e " \e[33m this script i would like to run as root user \e[0m"
