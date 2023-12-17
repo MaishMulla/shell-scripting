@@ -2,10 +2,10 @@
 
 USER_UID=$(id -u)
 COMPONENT=$1
-LOGFILE="/tmp/${COMPOENT}.log
+LOGFILE="/tmp/${COMPOENT}.log"
 
 if [ $USER_UID -ne 0 ] ; then 
-echo -e " \e[33m this script i would like to run as root user \e[0m"
+echo -e "\e[33m this script i would like to run as root user \e[0m"
 echo -e "\e[32m example usages : \n\t\t \e[om sudo bash scriptname componentName"
 exit 1 
 fi
