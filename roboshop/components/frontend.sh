@@ -2,6 +2,7 @@
 
 USER_UID=$(id -u)
 COMPONENT=$1
+LOGFILE="/tmp/${COMPoENT}.log
 
 if [ $USER_UID -ne 0 ] ; then 
 echo -e " \e[33m this script i would like to run as root user \e[0m"
@@ -40,7 +41,7 @@ else
 fi
 
 echo "extracting $1: "
-unzip /tmp/frontend.zip   &>> /tmp/frontend.log
+unzip /tmp/frontend.zip   &>> LOGFILE
 if [ $? -eq 0 ] ; then
     echo "success"
 else 
@@ -61,9 +62,9 @@ fi
 
 echo -n "restarting $1"
 
-systemctl enable nginx     &>> /tmp/frontend.log
-systemctl daemon-reload      &>> /tmp/frontend.log
-systemctl start nginx       &>> /tmp/frontend.log
+systemctl enable nginx     &>> LOGFILE
+systemctl daemon-reload      &>> LOGFILE
+systemctl start nginx       &>> LOGFILE
 
 if [ $? -eq 0 ] ; then
     echo "success"
