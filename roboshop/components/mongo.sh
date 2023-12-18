@@ -4,6 +4,7 @@ USER_UID=$(id -u)
 COMPONENT=mongo
 LOGFILE="/tmp/${COMPOENT}.log"
 MONGO_REPO="https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo"
+SCHEMA_URL="https://github.com/stans-robot-project/mongodb/archive/main.zip"
 
 start()
 {
@@ -40,4 +41,17 @@ systemctl daemon-reload      &>> $LOGFILE
 systemctl restart mongod       &>> $LOGFILE
 start $?
 
+echo "downloading $COMPONENT schema "
+curl -s -L -o /tmp/mongodb.zip $SCHEMA_URL
+start $?
+
+echo -n "extracting $COMPONENT :"
+unzip -o /tmp/${COMPOENT}.zip   &>> $LOGFILE
+start $?
+
+echo "injecting schema :"
+cd /tmp/mongodb-main
+mongo < catalogue.js
+mongo < users.js
+start $?
 
