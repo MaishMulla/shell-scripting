@@ -37,7 +37,7 @@ start $?
 echo -n "starting $COMPONENT"
 systemctl enable mongod     &>> $LOGFILE
 systemctl daemon-reload      &>> $LOGFILE
-systemctl start mongod       &>> $LOGFILE
+systemctl restart mongod       &>> $LOGFILE
 start $?
 
 
