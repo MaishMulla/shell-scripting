@@ -42,7 +42,7 @@ systemctl restart mongod       &>> $LOGFILE
 start $?
 
 echo -n "downloading $COMPONENT schema :"
-curl -s -L -o /tmp/mongodb.zip $SCHEMA_UR
+curl -s -L -o /tmp/mongodb.zip $SCHEMA_URL
 start $?
 
 echo -n "extracting $COMPONENT :"
