@@ -22,11 +22,11 @@ fi
 
 echo "-----configuring ${COMPONENT}-------"
 
-echo "configuring ${COMPONENT} repo"
+echo -n "configuring ${COMPONENT} repo"
 curl -s -o /etc/yum.repos.d/mongodb.repo $MONGO_REPO
 start $?
 
-echo -e "installing $COMPONENT "
+echo -n "installing $COMPONENT "
 yum install -y mongodb-org &>> ${LOGFILE}
 start $?
 
