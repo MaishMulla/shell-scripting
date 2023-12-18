@@ -30,4 +30,7 @@ echo -n "installing $COMPONENT "
 yum install -y mongodb-org &>> ${LOGFILE}
 start $?
 
+echo -n "enabling $COMPONENT visibility "
+sed -i -e 's/127.0.0.1/0.0.0.0/' mongod.conf
+
 
