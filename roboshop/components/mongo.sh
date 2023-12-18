@@ -41,15 +41,15 @@ systemctl daemon-reload      &>> $LOGFILE
 systemctl restart mongod       &>> $LOGFILE
 start $?
 
-echo "downloading $COMPONENT schema "
+echo -n "downloading $COMPONENT schema "
 curl -s -L -o /tmp/mongodb.zip $SCHEMA_URL
 start $?
 
 echo -n "extracting $COMPONENT :"
-unzip -o /tmp/${COMPONENT}.zip   &>> $LOGFILE
+unzip -o /tmp/${COMPONENT}.zip   &>> ${LOGFILE}
 start $?
 
-echo "injecting schema :"
+echo -n "injecting schema :"
 cd /tmp/mongodb-main
 mongo < catalogue.js
 mongo < users.js
