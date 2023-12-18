@@ -6,7 +6,7 @@ LOGFILE="/tmp/${COMPONENT}.log"
 MONGO_REPO="https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo"
 SCHEMA_URL="https://github.com/stans-robot-project/mongodb/archive/main.zip"
 
-start()
+stat()
 {
     if [ $? -eq 0 ] ; then
     echo "success"
@@ -25,33 +25,33 @@ echo "-----configuring ${COMPONENT}-------"
 
 echo -n "configuring ${COMPONENT} repo :"
 curl -s -o /etc/yum.repos.d/mongodb.repo $MONGO_REPO
-start $?
+stat $?
 
 echo -n "installing $COMPONENT :"
 yum install -y mongodb-org &>> ${LOGFILE}
-start $?
+stat $?
 
 echo -n "enabling $COMPONENT visibility "
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
-start $?
+stat $?
 
 echo -n "starting $COMPONENT :"
 systemctl enable mongod     &>> $LOGFILE
 systemctl daemon-reload      &>> $LOGFILE
 systemctl restart mongod       &>> $LOGFILE
-start $?
+stat $?
 
 echo -n "downloading $COMPONENT schema :"
 curl -s -L -o /tmp/mongodb.zip $SCHEMA_URL
-start $?
+stat $?
 
 echo -n "extracting $COMPONENT :"
 unzip -o /tmp/${COMPONENT}.zip     &>> $LOGFILE
-start $?
+stat $?
 
 echo -n "injecting schema :"
 cd /tmp/mongod-main
 mongo < catalogue.js
 mongo < users.js
-start $?
+stat $?
 
