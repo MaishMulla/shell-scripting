@@ -46,11 +46,11 @@ curl -s -L -o /tmp/mongodb.zip $SCHEMA_URL
 stat $?
 
 echo -n "extracting $COMPONENT :"
-unzip -o etc/tmp/${COMPONENT}.zip    &>> $LOGFILE
+unzip -o /tmp/${COMPONENT}.zip    &>> $LOGFILE
 stat $?
 
 echo -n "injecting schema "
-cd  etc/tmp/mongodb-main
+cd  /tmp/mongodb-main
 mongo < catalogue.js
 mongo < users.js
 stat $?
