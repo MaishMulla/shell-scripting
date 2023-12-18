@@ -28,7 +28,7 @@ curl -s -o /etc/yum.repos.d/mongodb.repo $MONGO_REPO
 stat $?
 
 echo -n "installing $COMPONENT :"
-yum install -y mongodb-org  &>> $LOGFILE
+yum install -y mongodb-org  &>> {$LOGFILE}
 stat $?
 
 echo -n "enabling $COMPONENT visibility "
