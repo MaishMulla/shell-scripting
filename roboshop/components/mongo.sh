@@ -23,11 +23,11 @@ fi
 
 echo "-----configuring ${COMPONENT}-------"
 
-echo -n "configuring ${COMPONENT} repo"
+echo -n "configuring ${COMPONENT} repo :"
 curl -s -o /etc/yum.repos.d/mongodb.repo $MONGO_REPO
 start $?
 
-echo -n "installing $COMPONENT "
+echo -n "installing $COMPONENT :"
 yum install -y mongodb-org &>> ${LOGFILE}
 start $?
 
@@ -35,7 +35,7 @@ echo -n "enabling $COMPONENT visibility "
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 start $?
 
-echo -n "starting $COMPONENT"
+echo -n "starting $COMPONENT :"
 systemctl enable mongod     &>> $LOGFILE
 systemctl daemon-reload      &>> $LOGFILE
 systemctl restart mongod       &>> $LOGFILE
@@ -46,7 +46,7 @@ curl -s -L -o /tmp/mongodb.zip $SCHEMA_URL
 start $?
 
 echo -n "extracting $COMPONENT :"
-unzip -o /tmp/${COMPONENT}.zip   &>> ${LOGFILE}
+unzip -o /tmp/${COMPONENT}.zip   &>> $LOGFILE
 start $?
 
 echo -n "injecting schema :"
