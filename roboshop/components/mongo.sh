@@ -28,7 +28,7 @@ curl -s -o /etc/yum.repos.d/mongodb.repo $MONGO_REPO
 stat $?
 
 echo -n "installing $COMPONENT :"
-yum install -y mongodb-org &>> ${LOGFILE}
+yum install -y mongodb-org  &>> $LOGFILE
 stat $?
 
 echo -n "enabling $COMPONENT visibility "
@@ -50,7 +50,7 @@ unzip -o /tmp/${COMPONENT}.zip     &>> $LOGFILE
 stat $?
 
 echo -n "injecting schema :"
-cd /tmp/mongod-main
+cd  /tmp/mongodb-main
 mongo < catalogue.js
 mongo < users.js
 stat $?
