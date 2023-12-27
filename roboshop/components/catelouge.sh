@@ -29,9 +29,10 @@ echo -n "installing nodeJS :"
 yum install nodejs -y     &>> $LOGFILE
 stat $?
 
+echo -e "creating $APPUSER :"
 id $APPUSER     &>> $LOGFILE
 if  [ $? -ne 0 ] ; then
-echo -e "creating $APPUSER :"
+
 useradd $APPUSER
 stat $?
 else 
