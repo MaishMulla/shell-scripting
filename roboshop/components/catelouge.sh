@@ -40,6 +40,6 @@ else
 echo -e "skipping"
 fi
 
-echo -n "downloading $COMPONENT"
+echo -n "downloading $COMPONENT :"
 curl -s -L -o /tmp/$COMPONENTe.zip $COMPONET_USER
 stat $?
