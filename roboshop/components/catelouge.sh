@@ -4,6 +4,7 @@
 USER_UID=$(id -u)
 COMPONENT=catalouge
 LOGFILE="/tmp/${COMPONENT}.log"
+APPUSER="roboshop"
 
 stat()
 {
@@ -20,10 +21,14 @@ echo -e "\e[32m example usages : \n\t\t \e[om sudo bash scriptname componentName
 exit 1 
 fi
 
-echo -n "configuring Nodejs repo :"
-yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
-stat $?  
+#echo -n "configuring Nodejs repo :"
+#yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
+#stat $?  
 
 echo -n "installing nodeJS :"
 yum install nodejs -y     &>> $LOGFILE
+stat $?
+
+echo -n "creating $APPUSER :"
+useradd $APPUSER
 stat $?
