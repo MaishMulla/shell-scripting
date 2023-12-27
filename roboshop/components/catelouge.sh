@@ -4,6 +4,7 @@
 USER_UID=$(id -u)
 COMPONENT=catalouge
 LOGFILE="/tmp/${COMPONENT}.log"
+COMPONET_USER="https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 APPUSER="roboshop"
 
 stat()
@@ -40,4 +41,4 @@ echo -e "skipping"
 fi
 
 echo -n "downloading $COMPONENT"
-curl -s -L -o /tmp/$COMPONENTe.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
+curl -s -L -o /tmp/$COMPONENTe.zip $COMPONET_USER
