@@ -39,3 +39,5 @@ else
 echo -e "skipping"
 fi
 
+echo -n "downloading $COMPONENT"
+curl -s -L -o /tmp/$COMPONENTe.zip "https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
