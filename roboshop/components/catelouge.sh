@@ -52,10 +52,12 @@ $ unzip -o  /tmp/${COMPONET}.zip        &>> $LOGFILE
 stat $?
 
 echo -n "configuring the $COMPONET permission :"
-
-
-
-mv /home/$APPUSER/${COMPONET_USER}-main $APPUSER_HOME
+mv ${APPUSER_HOME}-main $APPUSER_HOME
 chown -R $APPUSER: $APPUSER $APPUSER_HOME 
 chmod -R 770 $APPUSER_HOME
+stat $?
+
+echo -n "generating artifacts "
+cd $APPUSER_HOME
+npm install      &>> $LOGFILE
 stat $?
