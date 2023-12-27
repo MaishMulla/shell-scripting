@@ -6,6 +6,8 @@ COMPONENT=catalouge
 LOGFILE="/tmp/${COMPONENT}.log"
 COMPONET_USER="https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 APPUSER="roboshop"
+APPUSER_HOME="/home/${APPUSER}/${COMPONENT}"
+
 
 stat()
 {
@@ -45,3 +47,13 @@ curl -s -L -o /tmp/$COMPONENTe.zip $COMPONET_USER
 stat $?
 
 echo -e "extracting $COMPONET"
+cd /home/roboshop
+$ unzip -o  /tmp/${COMPONET}.zip        &>> $LOGFILE
+stat $?
+
+echo -n "configuring the $COMPONET permission :"
+
+
+
+mv /home/$APPUSER/${COMPONET_USER}-main $APPUSER_HOME
+chown -R $APPUSER: $APPUSER $APPUSER_HOME 
