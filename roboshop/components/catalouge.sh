@@ -1,9 +1,9 @@
 #!/bin/bash
 
 
-USER_UID=$(id -u)
+USER_ID=$(id -u)
 COMPONENT=catalogue
-COMPONET_USER="https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
+COMPONENT_USER="https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 LOGFILE="/tmp/${COMPONENT}.log"
 APPUSER="roboshop"
 APPUSER_HOME="/home/${APPUSER}/${COMPONENT}"
@@ -18,7 +18,7 @@ else
 fi
 }
 
-if [ $USER_UID -ne 0 ] ; then 
+if [ $USER_ID -ne 0 ] ; then 
 echo -e "\e[33m this script i would like to run as root user \e[0m"
 echo -e "\e[32m example usages : \n\t\t \e[om sudo bash scriptname componentName"
 exit 1 
