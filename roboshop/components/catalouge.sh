@@ -59,5 +59,5 @@ stat $?
 
 echo -n "generating artifacts "
 cd $APPUSER_HOME
-npm install      &>> $LOGFILE
+npm  install      &>> $LOGFILE
 stat $?
