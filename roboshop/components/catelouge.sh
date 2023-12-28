@@ -46,14 +46,14 @@ echo -n "downloading $COMPONENT :"
 curl -s -L -o /tmp/$COMPONENTe.zip $COMPONET_USER
 stat $?
 
-echo -e "extracting $COMPONET"
+echo -e "extracting $COMPONENT"
 cd /home/roboshop
-$ unzip -o  /tmp/${COMPONET}.zip        &>> $LOGFILE
+$ unzip -o  /tmp/${COMPONENT}.zip        &>> $LOGFILE
 stat $?
 
-echo -n "configuring the $COMPONET permission :"
+echo -n "configuring the $COMPONENT permission :"
 mv ${APPUSER_HOME}-main $APPUSER_HOME
-chown -R $APPUSER: $APPUSER $APPUSER_HOME 
+chown -R $APPUSER:$APPUSER $APPUSER_HOME 
 chmod -R 770 $APPUSER_HOME
 stat $?
 
