@@ -11,7 +11,7 @@ APPUSER_HOME="/home/${APPUSER}/${COMPONENT}"
 
 stat()
 {
-    if [ $? -eq 0 ] ; then
+    if [ $1 -eq 0 ] ; then
     echo "success"
 else 
     echo "fail"
