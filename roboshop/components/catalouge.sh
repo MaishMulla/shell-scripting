@@ -3,7 +3,7 @@
 
 USER_ID=$(id -u)
 COMPONENT=catalogue
-COMPONENT_USER="https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
+COMPONENT_URL="https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
 LOGFILE="/tmp/${COMPONENT}.log"
 APPUSER="roboshop"
 APPUSER_HOME="/home/${APPUSER}/${COMPONENT}"
@@ -43,7 +43,7 @@ echo -e "skipping"
 fi
 
 echo -n "downloading $COMPONENT :"
-curl -s -L -o /tmp/$COMPONENTe.zip $COMPONET_USER
+curl -s -L -o /tmp/$COMPONENT.zip $COMPONENT_URL
 stat $?
 
 echo -e "extracting $COMPONENT :"
