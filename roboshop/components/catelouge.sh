@@ -2,9 +2,9 @@
 
 
 USER_UID=$(id -u)
-COMPONENT=catalouge
-LOGFILE="/tmp/${COMPONENT}.log"
+COMPONENT=catalogue
 COMPONET_USER="https://github.com/stans-robot-project/$COMPONENT/archive/main.zip"
+LOGFILE="/tmp/${COMPONENT}.log"
 APPUSER="roboshop"
 APPUSER_HOME="/home/${APPUSER}/${COMPONENT}"
 
@@ -46,12 +46,12 @@ echo -n "downloading $COMPONENT :"
 curl -s -L -o /tmp/$COMPONENTe.zip $COMPONET_USER
 stat $?
 
-echo -e "extracting $COMPONENT"
+echo -e "extracting $COMPONENT :"
 cd /home/roboshop
 unzip -o /tmp/${COMPONENT}.zip        &>> $LOGFILE
 stat $?
 
-echo -n "configuring the $COMPONENT permission :"
+echo -n "configuring  $COMPONENT permission :"
 mv ${APPUSER_HOME}-main $APPUSER_HOME
 chown -R $APPUSER:$APPUSER $APPUSER_HOME 
 chmod -R 770 $APPUSER_HOME
