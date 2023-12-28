@@ -48,7 +48,7 @@ stat $?
 
 echo -e "extracting $COMPONENT"
 cd /home/roboshop
-$ unzip -o  /tmp/${COMPONENT}.zip        &>> $LOGFILE
+unzip -o /tmp/${COMPONENT}.zip        &>> $LOGFILE
 stat $?
 
 echo -n "configuring the $COMPONENT permission :"
